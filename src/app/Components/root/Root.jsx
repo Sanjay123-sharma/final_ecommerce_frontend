@@ -23,7 +23,7 @@ import Footer from '../Footer';
 
 
 export const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: 'https://final-ecommerce-backend-zyo2.onrender.com',
   cache: new InMemoryCache(),
 });
 
