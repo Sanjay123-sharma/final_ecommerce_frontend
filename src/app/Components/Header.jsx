@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import {FaShoppingCart } from 'react-icons/fa';
 import { IoMdLogIn } from 'react-icons/io';
 import { useSelector } from 'react-redux';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Header() {
   const [token,setToken]=useState(localStorage.getItem("token"))
@@ -59,7 +60,10 @@ export default function Header() {
           </NavLink>
           <button onClick={()=>{
             localStorage.removeItem("token");
-            window.location.href='/signin'
+            toast.success("Logout Successfully")
+           setTimeout(() => {
+             window.location.href='/signin'
+           }, 500);
           }}
           className='bg-amber-700 text-white p-1 rounded text-bold hover:scale-105 transition-transform duration-1000'
           >Logout</button>
@@ -89,6 +93,8 @@ export default function Header() {
         }
       
       </nav>
+            <Toaster position="top-center" reverseOrder={false} />
+
     </header>
   );
 }
